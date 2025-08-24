@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
@@ -12,12 +13,12 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      console.log("Searching for:", searchQuery);
-      // Here you would implement the actual search functionality
+      router.push(`/results?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 
