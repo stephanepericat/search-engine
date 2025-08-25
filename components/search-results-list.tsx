@@ -1,7 +1,7 @@
 import { SearchResultItem } from "./search-result-item";
 import { Skeleton } from "@/components/ui/skeleton";
 
-interface SearchResult {
+export interface SearchResult {
   id: string;
   title: string;
   url: string;
